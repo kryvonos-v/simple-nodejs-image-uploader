@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Node file uploades</title>
+</head>
+<body>
+  <h1>File uploading app</h1>
+  <% if (typeof uploadingErrorMessage !== 'undefined') { %>
+    <p><%= uploadingErrorMessage %></p>
+  <% } %>
+  <form method="POST" action="/upload-image" enctype="multipart/form-data">
+    <input type="file" name="image" />
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
