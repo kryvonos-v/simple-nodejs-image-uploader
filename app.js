@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const uploader = multer({
   storage,
   limits: {
-    fileSize: 1000000
+    fileSize: 1000000 // Max file size is 1mb
   },
   fileFilter (req, file, callback) {
     if (isImageFileSupported(file)) {
@@ -34,7 +34,8 @@ app.get('/', (req, res) => res.render('index'))
 app.post('/upload-image', (req, res) => {
   uploader(req, res, err => {
     res.render('index', {
-      uploadingErrorMessage: err
+      uploadingErrorMessage: err,
+      uploadedImageSrc: '/uploads/' + req.file.filename
     })
   })
 })
